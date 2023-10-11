@@ -24,10 +24,17 @@ public class UserService {
     }
 
     public User insert(User user) {
-         return repo.insert(user);
+        return repo.insert(user);
+    }
+
+    public void delete(String id) {
+        findById(id);
+        repo.deleteById(id);
     }
 
     public User fromDTO(UserDTO objDto) {
-    	return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
+
+
 }
